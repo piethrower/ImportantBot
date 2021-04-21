@@ -8,7 +8,7 @@ import secrets
 client = discord.Client()
 active_users = list()
 bopping = False
-sleep_time = 30
+sleep_time = 300
 @client.event
 async def on_ready():
     print('We have logged in as {0.user}'.format(client))
