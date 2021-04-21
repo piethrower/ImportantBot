@@ -42,7 +42,7 @@ async def on_voice_state_update(member, before, after):
                     if len(before.channel.members)==1:
                         if not vu.is_alone:
                             temp.time_alone_start = time.perf_counter()
-                    vu.is_alone = (len(after.channel.members)==1)
+                    vu.is_alone = (len(after.channel.members)==1) ## throwing errors when last user leaves
 
 async def check_for_bop():
     for vu in active_users:
@@ -56,7 +56,7 @@ async def bop(VC: discord.VoiceChannel):
     global bopping
     bopping = True
     boppage = await VC.connect()
-    boppage.play(discord.FFmpegPCMAudio(source=r"audio.mp3"))
+    boppage.play(discord.FFmpegPCMAudio(source=r"./audio.mp3"))
     while boppage.is_playing():
         await asyncio.sleep(.1)
     await boppage.disconnect()
