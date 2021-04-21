@@ -57,7 +57,7 @@ async def bop(VC: discord.VoiceChannel):
     global bopping
     bopping = True
     boppage = await VC.connect()
-    boppage.play(discord.FFmpegPCMAudio(source=r"home/pi/Documents/Discord/ImportantBot/audio.mp3"))
+    boppage.play(discord.FFmpegPCMAudio(source=r"/home/pi/Documents/Discord/ImportantBot/audio.mp3"))
     while boppage.is_playing():
         await asyncio.sleep(.1)
     await boppage.disconnect()
