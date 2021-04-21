@@ -12,7 +12,7 @@ bopping = False
 async def on_ready():
     print('We have logged in as {0.user}'.format(client))
     while True:
-        await asyncio.sleep(300)
+        await asyncio.sleep(30)
         await check_for_bop()
 
 @client.event
@@ -56,7 +56,7 @@ async def bop(VC: discord.VoiceChannel):
     global bopping
     bopping = True
     boppage = await VC.connect()
-    boppage.play(discord.FFmpegPCMAudio(source=r"./audio.mp3"))
+    boppage.play(discord.FFmpegPCMAudio(source=r"home/pi/Documents/Discord/ImportantBot/audio.mp3"))
     while boppage.is_playing():
         await asyncio.sleep(.1)
     await boppage.disconnect()
