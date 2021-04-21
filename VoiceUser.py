@@ -1,3 +1,5 @@
+#!/usr/bin/python3
+
 import discord
 import time
 class Voice_User():
@@ -20,4 +22,3 @@ class Voice_User():
     def __init__(self):
         self.time_alone_start = 0
         self.is_alone = False
-
