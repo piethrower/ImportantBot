@@ -8,11 +8,12 @@ import secrets
 client = discord.Client()
 active_users = list()
 bopping = False
+sleep_time = 30
 @client.event
 async def on_ready():
     print('We have logged in as {0.user}'.format(client))
     while True:
-        await asyncio.sleep(30)
+        await asyncio.sleep(sleep_time)
         await check_for_bop()
 
 @client.event
@@ -49,7 +50,7 @@ async def check_for_bop():
         time_alone = 0
         if vu.is_alone:
             time_alone = time.perf_counter() - vu.time_alone_start
-        if time_alone >= 300 and not bopping:
+        if time_alone >= sleep_time and not bopping:
             await bop(vu.channel)
 
 async def bop(VC: discord.VoiceChannel):
