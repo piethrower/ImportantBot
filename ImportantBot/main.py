@@ -2,6 +2,7 @@ import discord
 import time
 import asyncio
 import VoiceUser
+import secrets
 client = discord.Client()
 active_users = list()
 bopping = False
@@ -59,4 +60,4 @@ async def bop(VC: discord.VoiceChannel):
     await boppage.disconnect()
     bopping = False
 
-client.run("ODM0MTI1OTE3MTI3MzExNDMy.YH8WSw.aWaJODtqkx7bg-hyJkIcUqjmZkI")
+client.run(secrets.Token)
